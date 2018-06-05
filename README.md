@@ -1,0 +1,2 @@
+# samplePage
+サンプルページ
