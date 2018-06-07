@@ -1,13 +1,30 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// ServiceWorker処理：https://developers.google.com/web/fundamentals/primers/service-workers/?hl=ja
 
-self.addEventListener('install', function(e) {
-  console.log('[ServiceWorker] Install');
+// キャッシュ名とキャッシュファイルの指定
+var CACHE_NAME = 'pwa-sample-caches';
+var urlsToCache = [
+	'/samplePage/',
+	'/samplePage/css/style.css'
+];
+
+// インストール処理
+self.addEventListener('install', function(event) {
+	event.waitUntil(
+		caches
+			.open(CACHE_NAME)
+			.then(function(cache) {
+				return cache.addAll(urlsToCache);
+			})
+	);
 });
 
-self.addEventListener('activate', function(e) {
-  console.log('[ServiceWorker] Activate');
+// リソースフェッチ時のキャッシュロード処理
+self.addEventListener('fetch', function(event) {
+	event.respondWith(
+		caches
+			.match(event.request)
+			.then(function(response) {
+				return response ? response : fetch(event.request);
+			})
+	);
 });
