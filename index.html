@@ -9,9 +9,22 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="manifest" href="/manifest.json">
+        <script>
+            // この記述を追記
+            if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                     .register('/service-worker.js') // ここはservice-worker.jsのパスを指定
+                     .then(function() { console.log('Service Worker Registered'); });
+            }
+            // この記述を追記　ここまで
+        </script>
     </head>
     <body>
         <div>TODO write content</div>
-        <h1>サンプルページだよー!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</h1>
+        <h1>サンプルページだよー!!!!</h1>
+        <h2>サンプルページだよー!!!!</h2>
+        <h3>サンプルページだよー!!!!</h3>
+        <h4>サンプルページだよー!!!!</h4>
     </body>
 </html>
