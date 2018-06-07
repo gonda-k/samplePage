@@ -10,17 +10,17 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="manifest" href="/manifest.json">
-        <script>
-            // この記述を追記
-            if ('serviceWorker' in navigator) {
-            navigator.serviceWorker
-                     .register('/service-worker.js') // ここはservice-worker.jsのパスを指定
-                     .then(function() { console.log('Service Worker Registered'); });
-            }
-            // この記述を追記　ここまで
-        </script>
     </head>
     <body>
+        <script>
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }).catch(function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            }
+        </script>
         <div>TODO write content</div>
         <h1>サンプルページだよー!!!!</h1>
         <h2>サンプルページだよー!!!!</h2>
