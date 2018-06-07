@@ -1,0 +1,16 @@
+{
+    "dir": "ltr",
+    "lang": "ja",
+    "name": "PWAsample",
+    "scope": "/samplePage/",
+    "display": "browser",
+    "start_url": "https://gonda-k.github.io/samplePage/",
+    "short_name": "PWA",
+    "theme_color": "transparent",
+    "description": "",
+    "orientation": "any",
+    "background_color": "transparent",
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "icons": []
+}
